@@ -1,4 +1,3 @@
-// src/components/ElementTray.tsx
 import { DraggableElement } from "./DraggableElement";
 import { type FormElement } from "../types/types";
 import "../styles/ElementTray.css";

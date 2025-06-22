@@ -1,4 +1,3 @@
-// src/components/DraggableElement.tsx
 import { useDraggable } from "@dnd-kit/core";
 import { type FormElement } from "../types/types";
 import "../styles/DraggableElement.css";
