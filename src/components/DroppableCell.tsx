@@ -1,4 +1,3 @@
-// src/components/DroppableCell.tsx
 import { useDroppable } from "@dnd-kit/core";
 import { type FormElement } from "../types/types";
 import "../styles/DroppableCell.css";
@@ -6,21 +5,21 @@ import "../styles/DroppableCell.css";
 export function DroppableCell({
   index,
   content,
+  span = 1,
 }: {
   index: number;
   content: FormElement | null;
+  span?: number;
 }) {
   const { setNodeRef, isOver } = useDroppable({
     id: `cell-${index}`,
     data: { index },
   });
 
-  const cellClass = isOver
-    ? "droppable-cell hovered"
-    : "droppable-cell";
+  const cellClass = isOver ? "droppable-cell hovered" : "droppable-cell";
 
   const gridStyle: React.CSSProperties = {
-    gridColumn: [0, 3, 6, 7].includes(index) ? "span 2" : undefined,
+    gridColumn: `span ${span}`,
   };
 
   let rendered = null;
@@ -32,6 +31,8 @@ export function DroppableCell({
     } else if (content.type === "button") {
       rendered = <button className="cell-button">{content.label.toUpperCase()}</button>;
     }
+  } else if (index === 0) {
+    rendered = <span className="cell-placeholder">Add title here</span>;
   }
 
   return (

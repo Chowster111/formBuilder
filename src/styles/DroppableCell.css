@@ -10,7 +10,7 @@
 }
 
 .droppable-cell.hovered {
-  border-color: #4d89f5;
+  background: #d0f0c0;
 }
 
 .cell-title {
@@ -41,3 +41,4 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
