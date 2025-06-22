@@ -4,16 +4,11 @@ import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 import { ElementTray } from "./components/ElementTray";
 import { FormCanvas } from "./components/FormCanvas";
 import { type FormElement } from "./types/types";
+import { initialGrid } from "./constants/constants";
 
 function App() {
   const cols = 2;
   const [rows, setRows] = useState(1);
-
-  const initialGrid: (FormElement | null)[] = [
-    null,          // title (spans 2 columns)
-    null, null,    // 1st input row
-    null           // submit slot (spans 2 columns)
-  ];
 
   const [grid, setGrid] = useState<(FormElement | null)[]>(initialGrid);
 
