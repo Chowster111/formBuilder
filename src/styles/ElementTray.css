@@ -1,0 +1,7 @@
+.element-tray {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: var(--diffuse-shadow);
+}

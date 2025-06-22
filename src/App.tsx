@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import "./styles/App.css";
+import { useState } from "react";
+import { DndContext, type DragEndEvent } from "@dnd-kit/core";
+import { ElementTray } from "./components/ElementTray";
+import { FormCanvas } from "./components/FormCanvas";
+import { type FormElement } from "./types/types";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [grid, setGrid] = useState<(FormElement | null)[]>(Array(8).fill(null));
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { over, active } = event;
+    if (over && active.data.current?.element) {
+      const index = parseInt(String(over.id).replace("cell-", ""));
+      const element = active.data.current.element as FormElement;
+      setGrid((prev) => {
+        const newGrid = [...prev];
+        newGrid[index] = element;
+        return newGrid;
+      });
+    }
+  };
+
+  const handleReset = () => {
+    setGrid(Array(8).fill(null));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="page-wrapper">
+      <DndContext onDragEnd={handleDragEnd}>
+        <ElementTray />
+        <FormCanvas grid={grid} />
+        <button className="reset-button" onClick={handleReset}>
+          Reset Form
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </DndContext>
+    </div>
+  );
 }
 
-export default App
+export default App;

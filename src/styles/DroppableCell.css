@@ -1,0 +1,43 @@
+.droppable-cell {
+  border: 1px dashed transparent;
+  background: #f9f9f9;
+  height: 75px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.droppable-cell.hovered {
+  border-color: #4d89f5;
+}
+
+.cell-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cell-input {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #333;
+}
+
+.cell-button {
+  width: 100%;
+  height: 100%;
+  background-color: #4d89f5;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
