@@ -8,19 +8,28 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Core Libraries
+# Core Libraries
 react – UI library
+
 react-dom – DOM rendering for React
+
 vite – Frontend build tool
+
 typescript – Static type checking
 
 ## Development Tools
 @vitejs/plugin-react or @vitejs/plugin-react-swc – React plugin for Vite with Fast Refresh
+
 eslint – Linting tool
+
 eslint-plugin-react-x – React-specific lint rules
+
 eslint-plugin-react-dom – DOM-specific lint rules
+
 @typescript-eslint/eslint-plugin – TypeScript lint rules
+
 @typescript-eslint/parser – TypeScript parser for ESLint
+
 @dnd-kit/core – Drag-and-drop framework for building form elements
 
 ## Expanding the ESLint configuration
